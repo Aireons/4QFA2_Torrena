@@ -23,12 +23,7 @@
         function generateTable() {
             const firstnum = parseInt(document.getElementById("1num").value);
             const secondnum = parseInt(document.getElementById("2num").value);
-
-            if (isNaN(firstnum) || isNaN(secondnum) || firstnum < 2 || firstnum > 10 || secondnum < 2 || secondnum > 10) {
-                alert("Please enter numbers between 2 and 10");
-                return;
-            }
-
+            
             let table = "<table border='1'>";
             for (let count1 = firstnum; count1 <= secondnum; count1++) {
                 table += "<tr>";
