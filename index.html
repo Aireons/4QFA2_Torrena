@@ -1,1 +1,46 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <p>Enter 2 numbers from 2 to 10</p>
+        <form id="multiplicationForm">
+            <label for="1num">Enter first number:</label>
+            <input type="number" id="1num" name="start" min="2" max="10" required>
+            <label for="2num">Enter second number:</label>
+            <input type="number" id="2num" name="end" min="2" max="10" required>
+            <button type="button" onclick="generateTable()">Generate Table</button>
+        </form>
+        <div id="tableContainer"></div>
+    </div>
+    
+    <script>
+        function generateTable() {
+            const firstnum = parseInt(document.getElementById("1num").value);
+            const secondnum = parseInt(document.getElementById("2num").value);
+
+            if (isNaN(firstnum) || isNaN(secondnum) || firstnum < 2 || firstnum > 10 || secondnum < 2 || secondnum > 10) {
+                alert("Please enter numbers between 2 and 10");
+                return;
+            }
+
+            let table = "<table border='1'>";
+            for (let count1 = firstnum; count1 <= secondnum; count1++) {
+                table += "<tr>";
+                for (let count2 = firstnum; count2 <= secondnum; count2++) {
+                    table += "<td>" + (count1 * count2) + "</td>";
+                }
+                table += "</tr>";
+            }
+            table += "</table>";
+
+            document.getElementById("tableContainer").innerHTML = table
+        }
+    </script>
+</body>
+</html>
